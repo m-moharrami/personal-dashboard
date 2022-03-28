@@ -1,3 +1,5 @@
+let clockHolder = document.getElementById("time");
+
 fetch('https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&query=nature')
     .then (res => res.json())
     .then (data => {
@@ -29,3 +31,9 @@ fetch('https://api.coingecko.com/api/v3/coins/solana')
         `;
     })
     .catch(err => console.log(err));
+
+function displayClock() {
+    let time = new Date().toLocaleTimeString();
+    clockHolder.textContent = time;
+}
+setInterval(displayClock, 1000);
