@@ -21,6 +21,11 @@ fetch('https://api.coingecko.com/api/v3/coins/solana')
         document.getElementById("crypto-top").innerHTML = `
             <img src=${data.image.small} />
             <span>${data.name}</span>
-        `
+        `;
+        document.getElementById("crypto").innerHTML += `
+            <p>&#128178: $${data.market_data.current_price.usd}</p>
+            <p>&#128200: $${data.market_data.high_24h.usd}</p>
+            <p>&#128201: $${data.market_data.low_24h.usd}</p>
+        `;
     })
     .catch(err => console.log(err));
